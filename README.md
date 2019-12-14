@@ -15,4 +15,6 @@ USing this data a normal realtime plot-line graph is used along with a custom he
 P.S. if you are using the heat map please close the map to see the change for the second value in the csv.
 
 Hence you have a program to detect the number of people in the frame and to plot two diffrent graphs. Hope you guys like it! ENJOY YOUR CODE
+
+
 *WE HAVE INCLUDED AN EXAMPLE CSV FILE*
