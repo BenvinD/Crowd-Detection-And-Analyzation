@@ -11,7 +11,7 @@ P.S. if you are using the heat map please close the map to see the change for th
 Hence you have a program to detect the number of people in the frame and to plot two diffrent graphs. Hope you guys like it! ENJOY YOUR CODE
 
 
-*WE HAVE NOT INCLUDED ANY EXAMPLE CSV FILE*
+*WE HAVE INCLUDED EXAMPLE CSV FILE SO YOU CAN DIRCETLY RUN PLOT.PY AND HEATMAP.PY TO CHECK THE OUTPUT*
 
 
 
