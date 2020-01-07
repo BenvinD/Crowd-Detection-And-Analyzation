@@ -32,4 +32,4 @@ DIRECTIONS OF USE:
   ~python plot.py
   ~python HeatMap.py
  
- 3-Output:
+3.Output
