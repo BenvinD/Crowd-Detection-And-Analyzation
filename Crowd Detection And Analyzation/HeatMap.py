@@ -1,41 +1,26 @@
 #python HeatMap.py
 
-
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns; sns.set()
+import seaborn as sns
 import matplotlib.animation as animation
-import pyautogui
-import time
-import os
-import psutil
 import csv
 
+# Read data from CSV file into a DataFrame
+df = pd.read_csv("data.csv")
 
-listOfProcessNames = list()
-#Iterate over all running processes
-x=[]
-y=[]
+# Define a function to update the heatmap
+def update_heatmap(frame):
+    plt.clf()  # Clear the previous plot
+    # Process data for the current frame (assuming the data is already sorted by time)
+    data = df.iloc[:frame + 1]  # Use data up to the current frame
+    pivot_data = data.pivot(index='No.of People', columns='Time', values='value')
+    ax = sns.heatmap(pivot_data, cbar_kws={'ticks': range(1, 21)}, vmin=0, vmax=20, cmap="PuBu", linecolor='red', linewidths=1)
+    plt.title(f"Time: {data.iloc[-1]['Time']}")
+    plt.pause(0.1)  # Pause to display the plot (adjust as needed)
 
+# Create an animation
+fig = plt.figure()
+ani = animation.FuncAnimation(fig, update_heatmap, frames=len(df), interval=200, repeat=False)
 
-while True:
-  with open("data.csv",'r')as csvfile:
-    df=csv.reader(csvfile,delimiter=',')
-    
-    for row in df:
-      x.append(str(row[0]))
-      y.append(int(row[1]))
-      a=len(x)
-      
-  for i in range(a):
-    
-    df = pd.DataFrame({'Time': x[i], 'No.of People': y[i],'value':y[i]},index=[0])
-    uniform_data = df.pivot(index='No.of People', columns='Time', values='value')
-    ax = sns.heatmap(uniform_data, cbar_kws={'ticks': [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]}, vmin=0, vmax=20,cmap="PuBu",linecolor='red',linewidths=1) 
-    
-    plt.show()
-
-
-
-
-  
+plt.show()
